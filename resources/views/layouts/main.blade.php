@@ -31,6 +31,10 @@
 
     <meta name="description" content="" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bracket/0.11.1/jquery.bracket.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bracket/0.11.1/jquery.bracket.min.js"></script>
+
     <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
 
@@ -59,6 +63,13 @@
 <!-- Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 <!-- Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 <script src="{{ asset('assets/js/config.js') }}"></script>
+
+<style>
+  .jQBracket .team .name {
+    width: 200px; /* Atur lebar sesuai kebutuhan Anda */
+}
+
+</style>
   </head>
 
 <body>
@@ -96,6 +107,126 @@
       >
     </div>
 
+    <script>
+// Data untuk semua bracket
+var bracketData = {
+        "#myBracket": {
+            teams: [
+                ["Participants 1", "Participants 2"],
+                ["Participants 3", "Participants 4"],
+                ["Participants 5", "Participants 6"],
+                ["Participants 7", "Participants 8"],
+                ["Participants 9", "Participants 10"],
+                ["Participants 11", "Participants 12"],
+                ["Participants 13", "Participants 14"],
+                ["Participants 15", "Participants 16"]
+            ],
+            results: []
+        },
+        "#myBracket2": {
+            // Data untuk bracket 2
+            teams: [
+                ["Participants 17", "Participants 18"],
+                ["Participants 19", "Participants 20"],
+                ["Participants 21", "Participants 22"],
+                ["Participants 23", "Participants 24"],
+                ["Participants 25", "Participants 26"],
+                ["Participants 27", "Participants 28"],
+                ["Participants 29", "Participants 30"],
+                ["Participants 31", "Participants 32"]
+            ],
+            results: []
+        },
+        "#myBracket3": {
+            // Data untuk bracket 3
+            teams: [
+                ["Participants 33", "Participants 34"],
+                ["Participants 35", "Participants 36"],
+                ["Participants 37", "Participants 38"],
+                ["Participants 39", "Participants 40"],
+                ["Participants 41", "Participants 42"],
+                ["Participants 43", "Participants 44"],
+                ["Participants 45", "Participants 46"],
+                ["Participants 47", "Participants 48"]
+            ],
+            results: []
+        },
+        "#myBracket4": {
+            // Data untuk bracket 3
+            teams: [
+                ["Participants 33", "Participants 34"],
+                ["Participants 35", "Participants 36"],
+                ["Participants 37", "Participants 38"],
+                ["Participants 39", "Participants 40"],
+                ["Participants 41", "Participants 42"],
+                ["Participants 43", "Participants 44"],
+                ["Participants 45", "Participants 46"],
+                ["Participants 47", "Participants 48"]
+            ],
+            results: []
+        },
+        "#myBracket5": {
+            // Data untuk bracket 3
+            teams: [
+                ["Participants 33", "Participants 34"],
+                ["Participants 35", "Participants 36"],
+                ["Participants 37", "Participants 38"],
+                ["Participants 39", "Participants 40"],
+                ["Participants 41", "Participants 42"],
+                ["Participants 43", "Participants 44"],
+                ["Participants 45", "Participants 46"],
+                ["Participants 47", "Participants 48"]
+            ],
+            results: []
+        },
+        "#myBracket6": {
+            // Data untuk bracket 3
+            teams: [
+                ["Participants 33", "Participants 34"],
+                ["Participants 35", "Participants 36"],
+                ["Participants 37", "Participants 38"],
+                ["Participants 39", "Participants 40"],
+                ["Participants 41", "Participants 42"],
+                ["Participants 43", "Participants 44"],
+                ["Participants 45", "Participants 46"],
+                ["Participants 47", "Participants 48"]
+            ],
+            results: []
+        },
+    };
+
+    // Inisialisasi bracket untuk setiap div dengan ID yang berbeda
+    for (var bracketId in bracketData) {
+        $(bracketId).bracket({
+            init: bracketData[bracketId],
+            save: function () {
+                console.log('Bracket has been saved.');
+            }
+        });
+    }
+
+    $(document).ready(function () {
+    // Mendapatkan URL halaman saat ini
+    var currentUrl = window.location.href;
+
+    // Cek jika URL mengandung '/tambah-data'
+    if (currentUrl.includes("/tambah-data")) {
+        // Hapus kelas 'active' dari menu Bagan jika ada
+        $(".menu-item.active").removeClass("active");
+
+        // Tambahkan kelas 'active' ke menu Tambah Data
+        $(".menu-item a[href='/tambah-data']").parent().addClass("active");
+    } else if (currentUrl.includes("/informasi")) {
+        // Hapus kelas 'active' dari menu Bagan jika ada
+        $(".menu-item.active").removeClass("active");
+
+        // Tambahkan kelas 'active' ke menu Informasi
+        $(".menu-item a[href='/informasi']").parent().addClass("active");
+    }
+});
+
+    </script>
+
     <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
 <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
@@ -118,61 +249,7 @@
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-    <script>
-      document.getElementById("playBtn").addEventListener("click", function() {
-        // Simulate random winners for the matches
-        var winners = [];
-        for (var i = 0; i < 8; i++) {
-          var randomNumber = Math.floor(Math.random() * 2); // 0 or 1
-          winners.push(randomNumber === 0 ? "Participant " + (i * 2 + 1) : "Participant " + (i * 2 + 2));
-        }
-    
-        // Update the winners in the table
-        for (var j = 0; j < winners.length; j++) {
-          document.getElementById("winner" + (j + 1)).textContent = winners[j];
-        }
-      });
-    
-      document.getElementById("playBtn2").addEventListener("click", function() {
-        // Simulate random winners for the quarter finals
-        var quarterFinalWinners = [];
-        for (var i = 0; i < 4; i++) {
-          var randomNumber = Math.floor(Math.random() * 2); // 0 or 1
-          quarterFinalWinners.push(randomNumber === 0 ? "Participant " + (i * 2 + 1) : "Participant " + (i * 2 + 2));
-        }
-    
-        // Update the winners in the table
-        for (var j = 0; j < quarterFinalWinners.length; j++) {
-          document.getElementById("winnerWinner" + (j + 1)).textContent = quarterFinalWinners[j];
-        }
-      });
-    
-      document.getElementById("playBtn3").addEventListener("click", function() {
-        // Simulate random winners for the semi finals
-        var semiFinalWinners = [];
-        for (var i = 0; i < 2; i++) {
-          var randomNumber = Math.floor(Math.random() * 2); // 0 or 1
-          semiFinalWinners.push(randomNumber === 0 ? "Participant " + (i * 2 + 1) : "Participant " + (i * 2 + 2));
-        }
-    
-        // Update the winners in the table
-        for (var j = 0; j < semiFinalWinners.length; j++) {
-          document.getElementById("final" + (j + 1)).textContent = semiFinalWinners[j];
-        }
-      });
-
-      document.getElementById("playBtn4").addEventListener("click", function() {
-  // Simulate random winner for the final match
-  var finalWinner = Math.floor(Math.random() * 2); // 0 or 1
-  var winner = finalWinner === 0 ? "Participant 1" : "Participant 2";
-  
-  // Update the final winner in the table
-  document.getElementById("final1").textContent = winner;
-
-  // Place the final winner in the champions cell
-  document.getElementById("champion").textContent = winner;
-});
-
-    </script>
+{{-- Box Icon --}}
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </body>
 </html>
