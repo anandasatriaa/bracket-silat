@@ -9,14 +9,16 @@
             <div class="container-xxl flex-grow-1 container-p-y">
               <div class="row">
                 <div class="">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                    <h3 class="text-lg">Bagan <b>Seleksi Peserta Silat</b></h3>
-                    <div class="d-flex align-items-center">
-                      <label for="uploadExcel" class="btn rounded-pill btn-primary d-flex align-items-center">
-                        <box-icon name='file-plus' type='solid' color='#ffffff'></box-icon>&nbsp; Upload Excel
-                      </label>
-                      <input type="file" id="uploadExcel" style="display: none;">
-                      <a href="/tambah-data" class="btn rounded-pill btn-primary d-flex align-items-center ms-2"><box-icon name='user-plus' color='#ffffff' ></box-icon>&nbsp; Tambah Data Manual</a>
+                  <div class="d-block d-lg-flex align-items-center justify-content-between mb-3">
+                    <h3 class="text-lg mt-2">Bagan <b>Seleksi Peserta Silat</b></h3>
+                    <div class="d-block d-lg-flex align-items-lg-center">
+                      <div class="input-group mt-2 me-2">
+                        <input class="form-control" type="file" id="formFile" />
+                        <button class="btn btn-primary">Upload</button>
+                      </div>
+                      <div class="col-sm-auto mt-2">
+                        <a href="/tambah-data" class="btn btn-primary d-flex align-items-center justify-content-center"><box-icon name='user-plus' color='#ffffff' ></box-icon>&nbsp; Tambah Data Manual</a>
+                      </div>
                     </div>
                   </div>
                   <div class="nav-align-top mb-4">

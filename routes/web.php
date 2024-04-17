@@ -13,3 +13,7 @@ Route::get('/tambah-data', function () {
 Route::get('/informasi', function () {
     return view('informasi');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});

@@ -94,6 +94,17 @@
                 <div data-i18n="Analytics">Informasi</div>
               </a>
             </li>
+
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">Akun</span>
+            </li>
+            <!-- Logout -->
+            <li class="menu-item">
+              <a href="/login" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-power-off"></i>
+                <div data-i18n="Basic">Logout</div>
+              </a>
+            </li>
           </ul>
         </aside>
         <!-- / Menu -->
